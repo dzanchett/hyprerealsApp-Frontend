@@ -1,0 +1,20 @@
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a [class.active]="meusLivrosShow==true" class="nav-link clicavel" (click)="showMeusLivros()">My Books</a>
+      </li>
+      <li class="nav-item">
+        <a [class.active]="meusLivrosShow==false" class="nav-link clicavel" (click)="showLivrosDesejados()">Desired Books</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <div *ngIf="meusLivrosShow==true">
+      <app-meus-livros></app-meus-livros>
+    </div>
+    <div *ngIf="meusLivrosShow==false">
+      <app-livros-desejados></app-livros-desejados>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<button type="button" class="btn btn-primary round position-absolute" (click)="togleAddConhecimento()">+</button>
+
+<div *ngIf="exibirAdicionarConhecimento" class="card cadastroLivro">
+	<label for="campoConhecimento">Enter knowledge:</label>
+	<div *ngIf="conhecimentoInvalido" class="alert alert-danger" role="alert">Invalid informed knowledge!</div>
+    <input #campoConhecimento type="text" class="form-control-sm mb-2" id="campoConhecimento" aria-describedby="Conhecimento" placeholder="Knowledge" (keyup)="digitando()">
+    <button class="btn btn-sm btn-info" style="width: 60%; margin-left: 20%; margin-right: 20%;" type="button" (click)="addConhecimento()">Add Knowledge</button>
+</div>
+
+<div class="card abaixo mb-2" *ngFor="let knowledge of postData">
+  <div class="card-body">
+    <h5 class="card-title">{{knowledge}}</h5>
+    <button type="button" class="btn btn-danger float-right" (click)="delConhecimento(knowledge)" style="right: 15px; bottom: 10px;">remove knowledge</button>
+  </div>
+</div>

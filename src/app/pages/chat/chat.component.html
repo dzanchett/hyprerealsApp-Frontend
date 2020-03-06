@@ -1,0 +1,36 @@
+<div class="row ml-3 mr-3">
+  <div [class.esconder-div]="!exibirMenuChat" class="col-sm-3 col-12">
+    <div class="card menu-chat">
+      <div class="card-body">
+        <div *ngFor="let user of postData" class="card mb-2 users-cards clicavel" (click)="ativaRecebeMensagens(user.usuario)">
+		  <div class="card-body">
+		    {{user.usuario}} <span *ngIf="!user.read" class="badge badge-secondary">New</span>
+		  </div>
+		</div>
+      </div>
+    </div>
+  </div>
+  <div [class.esconder-div]="exibirMenuChat" class="col-sm-9 col-12">
+  	<button type="button" class="btn btn-primary round position-absolute botao-voltar" (click)="abrirMenuChat()">&#8629;</button>
+
+
+      <div class="card chat">
+        <div class="card-body">
+          <div #controlaAltura class="controla-altura">
+          <div *ngFor="let message of mensagensData" [class.m-system]="message.userSent=='system'" [class.m-other]="message.userSent!=meuUsuario && message.userSent!='system'" [class.m-mine]="message.userSent==meuUsuario" class="alert alert-secondary m-system" role="alert">
+  		  <span *ngIf="message.userSent!='system'" style="text-decoration: underline; font-weight: bold;">{{message.userSent}}<br/></span><div [innerHTML]="message.message"></div>
+  		</div>
+      </div>
+    </div>
+
+      <hr>
+
+      <form class="form-inline">
+	    	<div class="form-group w-100 position-absolute local-resposta">
+	    		<input #campoResposta type="text" class="form-control campo-resposta" placeholder="Mensagem">
+	    		<button type="button" class="btn enviar" (click)="enviaMensagem()">Send</button>
+	  		</div>	
+		</form>
+    </div>
+  </div>
+</div>

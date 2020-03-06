@@ -1,0 +1,22 @@
+<div class="text-center">
+	<form class="form-signin">
+		<app-icon></app-icon>
+		<h1 class="h3 mb-3 font-weight-normal">Please, fill your data bellow<br/>to complete the registration.</h1>
+		<div *ngIf="alerta==1" class="alert alert-danger" role="alert">There was an error processing your request!<br>Check the data entered!</div>
+		<div *ngIf="alerta==2" class="alert alert-danger" role="alert">Some data entered is invalid!<br>Check the entered data!</div>
+		<div *ngIf="alerta==3" class="alert alert-danger" role="alert">The email you entered is already in use!<br/>Please choose another one!</div>
+		<div *ngIf="alerta==4" class="alert alert-danger" role="alert">The username you entered is already in use!<br/>Please choose another!</div>
+		<label for="inputNomeUsuario" class="sr-only">Username</label>
+		<input [class.is-invalid]="nomeUsuarioValido==-1" [class.is-valid]="nomeUsuarioValido==1" (keyup)="verificaNomeUsuario()" (focusout)="verificaNomeUsuario()" #campoNomeUsuario type="text" id="inputNomeUsuario" class="form-control mb-2" placeholder="Username" required autofocus>
+		<label for="inputEmail" class="sr-only">Email Address</label>
+		<input [class.is-invalid]="emailValido==-1" [class.is-valid]="emailValido==1" (keyup)="verificaEmail()" (focusout)="verificaEmail()" #campoEmail type="email" id="inputEmail" class="form-control mb-2" placeholder="E-mail Address" required email>
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input [class.is-invalid]="senhaValido==-1" [class.is-valid]="senhaValido==1" (keyup)="verificaSenha()" (focusout)="verificaSenha()" #campoSenha type="password" id="inputPassword" class="form-control mb-2" placeholder="Password" required>
+		<div class="checkbox mb-3">
+		<!---<label>
+			<input type="checkbox" value="remember-me"> Lembrar!
+		</label>--->
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" (click)="onTestPost()" type="button">Sing Up</button>
+	</form>
+</div>

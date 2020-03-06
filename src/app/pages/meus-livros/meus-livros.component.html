@@ -1,0 +1,18 @@
+<button type="button" class="btn btn-primary round position-absolute" (click)="togleAddLivro()">+</button>
+
+<div *ngIf="exibirAdicionarLivro" class="card cadastroLivro">
+	<label for="campoISBN">Enter book ISBN:</label>
+	<div *ngIf="ISBNInvalido" class="alert alert-danger" role="alert">Invalid ISBN entered!</div>
+    <input #campoISBN type="text" class="form-control-sm mb-2" id="campoISBN" aria-describedby="ISBN" placeholder="ISBN" (keyup)="digitando()">
+    <button class="btn btn-sm btn-info" style="width: 60%; margin-left: 20%; margin-right: 20%;" type="button" (click)="addLivro()">Add Book</button>
+</div>
+
+<div class="card abaixo mb-2" *ngFor="let book of postData">
+  <div class="card-body" style="padding-bottom: 80px;">
+    <h5 class="card-title">{{book.Title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{book.Authors}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{book.Publisher}}</h6>
+    <p class="card-text position-absolute float-center abaixo" style="width: 65%; margin-right: 15%; margin-left: 15%; z-index: 0!important!;">{{book['ISBN-13']}}<br/>{{book.Year}}<br/>{{book.Language}}</p>
+    <button type="button" class="btn btn-danger position-absolute float-right mt-4 acima" (click)="delLivro(book['isbnlike'])" style="right: 15px; bottom: 10px;">Remove Book</button>
+  </div>
+</div>

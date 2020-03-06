@@ -1,0 +1,26 @@
+<nav class="site-header sticky-top py-1">
+  <div class="container d-md-flex flex-md-row justify-content-between">
+    <a class="py-2" routerLink="" aria-label="Product">
+      <app-icon></app-icon>
+    </a>
+	    <div *ngIf="globals.isUserLogged==false" id="menuPrincipalNaoLogado" style="text-align: center; color: #999" class="mt-1">
+	    	<a class="py-2 d-md-inline-block" routerLink="/cadastro">Sing Up</a>
+	    	|
+			<a class="py-2 d-md-inline-block" routerLink="/login">Log In</a>
+	    </div>
+	    <div *ngIf="globals.isUserLogged==true" id="menuPrincipalLogado" style="text-align: center; color: #999" class="mt-1">
+	    	<a class="py-2 d-md-inline-block" routerLink="/livros">Books</a>
+	    	|
+	    	<a class="py-2 d-md-inline-block" routerLink="/conhecimentos">Knowledges</a>
+	    	|
+	    	<a class="py-2 d-md-inline-block" routerLink="/chat">Chat</a>
+	    	|
+	    	<a class="py-2 d-md-inline-block" (click)="onLogout()" href="#">Log Out</a>
+	    </div>
+	    <div id="selecionaIdioma" style="text-align: right; color: #999">
+		    <!--<a class="py-2 d-md-inline-block active" href="#">Pt</a>
+		    |
+		    <a class="py-2 d-md-inline-block" href="#">En</a>-->
+		</div>
+	</div>
+</nav>

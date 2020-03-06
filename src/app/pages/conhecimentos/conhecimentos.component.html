@@ -1,0 +1,20 @@
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a [class.active]="meusConhecimentosShow==true" class="nav-link clicavel" (click)="showMeusConhecimentos()">My knowledges</a>
+      </li>
+      <li class="nav-item">
+        <a [class.active]="meusConhecimentosShow==false" class="nav-link clicavel" (click)="showConhecimentosDesejados()">Desired knowledges</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <div *ngIf="meusConhecimentosShow==true">
+      <app-meus-conhecimentos></app-meus-conhecimentos>
+    </div>
+    <div *ngIf="meusConhecimentosShow==false">
+      <app-conhecimentos-desejados></app-conhecimentos-desejados>
+    </div>
+  </div>
+</div>
